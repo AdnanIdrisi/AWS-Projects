@@ -26,7 +26,7 @@ This guide walks you through creating a **Linux server** on AWS EC2 using the AW
 - Click on **"Launch Instance"**
 
 <p align="center">
-  <img src="screenshots/step-1.png" width="600"/>
+  <img src="Screenshots/step-1.png" width="600"/>
   <br/>
   <i>Figure 1: Launch EC2 from AWS Console</i>
 </p>
@@ -37,7 +37,7 @@ This guide walks you through creating a **Linux server** on AWS EC2 using the AW
 - Example name: `my-linux-server`
 
 <p align="center">
-  <img src="screenshots/step-2.png" width="600"/>
+  <img src="Screenshots/step-2.png" width="600"/>
   <br/>
   <i>Figure 2: Naming the EC2 instance</i>
 </p>
@@ -51,7 +51,7 @@ This guide walks you through creating a **Linux server** on AWS EC2 using the AW
   - ✅ (Optional: Windows or Android)
 
 <p align="center">
-  <img src="screenshots/step-3.png" width="600"/>
+  <img src="Screenshots/step-3.png" width="600"/>
   <br/>
   <i>Figure 3: Selecting an OS (e.g. Linux)</i>
 </p>
@@ -63,7 +63,7 @@ This guide walks you through creating a **Linux server** on AWS EC2 using the AW
 - Consider your app’s CPU, memory, and network needs
 
 <p align="center">
-  <img src="screenshots/step-4.png" width="600"/>
+  <img src="Screenshots/step-4.png" width="600"/>
   <br/>
   <i>Figure 4: Selecting the instance type</i>
 </p>
@@ -75,13 +75,13 @@ This guide walks you through creating a **Linux server** on AWS EC2 using the AW
 - Download the `.pem` file for secure SSH access
 
 <p align="center">
-  <img src="screenshots/step-5.png" width="600"/>
+  <img src="Screenshots/step-5.png" width="600"/>
   <br/>
-  <img src="screenshots/step-5b.png" width="600"/>
+  <img src="Screenshots/step-5b.png" width="600"/>
   <br/>
-  <img src="screenshots/step-5c.png" width="600"/>
+  <img src="Screenshots/step-5c.png" width="600"/>
   <br/>
-  <img src="screenshots/step-5d.png" width="600"/>
+  <img src="Screenshots/step-5d.png" width="600"/>
   <br/>
   <i>Figure 5: Key pair setup for EC2 login</i>
 </p>
@@ -95,7 +95,7 @@ This guide walks you through creating a **Linux server** on AWS EC2 using the AW
   - ✅ HTTPS (Port 443)
 
 <p align="center">
-  <img src="screenshots/step-6.png" width="600"/>
+  <img src="Screenshots/step-6.png" width="600"/>
   <br/>
   <i>Figure 6: Opening ports in the security group</i>
 </p>
@@ -107,9 +107,9 @@ This guide walks you through creating a **Linux server** on AWS EC2 using the AW
 - Wait until the status is **"running"**
 
 <p align="center">
-  <img src="screenshots/step-7.png" width="600"/>
+  <img src="Screenshots/step-7.png" width="600"/>
   <br/>
-  <img src="screenshots/step-7b.png" width="600"/>
+  <img src="Screenshots/step-7b.png" width="600"/>
   <br/>
   <i>Figure 7: Launching the EC2 instance</i>
 </p>
@@ -122,10 +122,11 @@ This guide walks you through creating a **Linux server** on AWS EC2 using the AW
 - In the **"EC2 Instance Connect"** click on **"Connect"**
 
 <p align="center">
-    <img src="screenshots/step-8.png" width="600"/>
+    <img src="Screenshots/step-8.png" width="600"/>
     <br/>
-    <img src="screenshots/step-8b.png" width="600"/>
+    <img src="Screenshots/step-8b.png" width="600"/>
     <br/>
+    <i>Figure 8: Connecting the EC2 instance</i>
 </p>
 
 ---
@@ -137,12 +138,13 @@ This guide walks you through creating a **Linux server** on AWS EC2 using the AW
 - Activate package by `systemctl start httpd`
 
 <p align="center">
-    <img src="screenshots/step-9.png" width="600"/>
+    <img src="Screenshots/step-9.png" width="600"/>
     <br/>
-    <img src="screenshots/step-9b.png" width="600"/>
+    <img src="Screenshots/step-9b.png" width="600"/>
     <br/>
-    <img src="screenshots/step-9c.png" width="600"/>
+    <img src="Screenshots/step-9c.png" width="600"/>
     <br/>
+    <i>Figure 9: Installing packages on linux</i>
 </p>
 
 ---
@@ -155,8 +157,9 @@ This guide walks you through creating a **Linux server** on AWS EC2 using the AW
 - Press `Enter` and save your file by `Control + d`
 
 <p align="center">
-    <img src="screenshots/step-10.png" width="600"/>
+    <img src="Screenshots/step-10.png" width="600"/>
     <br/>
+    <i>Figure 10: Hosting the file</i>
 </p>
 
 ---
@@ -166,10 +169,11 @@ This guide walks you through creating a **Linux server** on AWS EC2 using the AW
 - Search **Public IP** in the browser
 
 <p align="center">
-    <img src="screenshots/step-11.png" width="600"/>
+    <img src="Screenshots/step-11.png" width="600"/>
     <br/>
-    <img src="screenshots/step-11b.png" width="600"/>
+    <img src="Screenshots/step-11b.png" width="600"/>
     <br/>
+    <i>Figure 11: Viewing the hosted page</i>
 </p>
 <br/>
 
