@@ -184,11 +184,11 @@ This guide walks you through creating a **Linux server** on AWS EC2 using the AW
 - Click on the refresh icon in launch template
 - Select the launch template created in above step and click on **"Next"**
 - Select all the availability zones 
-- Select **"Balanced best effort"** and click on *"Next"* 
-- Again click on "Next"
-- Give the "Desired capacity", "Min desired capacity" and "Max desired capacity" and click on "Next"
-- Again click on "Next" two times
-- Click on "Create Auto Scaling group"
+- Select **"Balanced best effort"** and click on **"Next"** 
+- Again click on **"Next"**
+- Give the **"Desired capacity"**, **"Min desired capacity"** and **"Max desired capacity"** and click on **"Next"**
+- Again click on **"Next"** two times
+- Click on **"Create Auto Scaling group"**
 
 <p align="center">
     <img src="Screenshots/step-12.png" width="600"/>
