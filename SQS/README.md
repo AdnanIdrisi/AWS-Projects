@@ -95,7 +95,6 @@
     <br/>
     <img src="Screenshots/step-3c.png" width="600"/>
     <br/>
-    <i>Figure 1: SNS console</i>
 </p>
 
 ---
