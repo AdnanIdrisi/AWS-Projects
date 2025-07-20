@@ -1,4 +1,4 @@
-# ☁️ AWS Internship Project – Hands-on Cloud Learning
+<h1 align="center" style="color:#2E86C1;">☁️ AWS Internship Project – Hands-on Cloud Learning</h1>
 
 Welcome to my AWS Internship Project repository! This project documents my hands-on learning journey using **Amazon Web Services (AWS)**. It covers essential cloud computing tasks like EC2 server deployment, EBS volumes, snapshots, Apache web hosting, and more — all performed using AWS Free Tier.
 

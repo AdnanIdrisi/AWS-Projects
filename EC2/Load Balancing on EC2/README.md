@@ -2,7 +2,7 @@
   <img src="Screenshots/awslinuxlogo.webp" width="120"/>
 </p>
 
-<h1 align="center" style="color:#2E86C1;">AWS EC2 - Auto Scaling in EC2</h1>
+<h1 align="center" style="color:#2E86C1;">AWS EC2 - Load Balancing in EC2</h1>
 </br>
 
 
@@ -12,7 +12,7 @@
 
 ---
 
-This guide walks you through creating a **Linux server** on AWS EC2 using the AWS Management Console and applying auto scaling on the server. Steps include launching the server, creating auto scaling group.
+This guide walks you through creating multiple **Linux server** on AWS EC2 using the AWS Management Console and applying load balancing on the server to distribute the incoming network traffic. Steps include launching the server, creating load balancer and viewing result.
 
 </br>
 
@@ -34,7 +34,7 @@ This guide walks you through creating a **Linux server** on AWS EC2 using the AW
 ---
 
 ### 📌 Step 2: Provide a Name for Your Server
-- Example name: `my-linux-server`
+- Example name: `my-server`
 
 <p align="center">
   <img src="Screenshots/step-2.png" width="600"/>
@@ -87,9 +87,15 @@ This guide walks you through creating a **Linux server** on AWS EC2 using the AW
   - ✅ SSH (Port 22)
   - ✅ HTTP (Port 80)
   - ✅ HTTPS (Port 443)
+- Click on **"Edit"**
+- Click on **"Add security group rule"**
+- Select **"All trafic"** in **"Type"**
+- Select **"Anywhere"** in **"Source type"**
 
 <p align="center">
   <img src="Screenshots/step-6.png" width="600"/>
+  <br/>
+  <img src="Screenshots/step-6b.png" width="600"/>
   <br/>
   <i>Figure 6: Opening ports in the security group</i>
 </p>
@@ -97,74 +103,76 @@ This guide walks you through creating a **Linux server** on AWS EC2 using the AW
 ---
 
 ### 📌 Step 7: Launch the Instance
+- Enter the number of Instance you want
 - Click **“Launch Instance”**
 - Wait until the status is **"running"**
 
 <p align="center">
   <img src="Screenshots/step-7.png" width="600"/>
   <br/>
-  <img src="Screenshots/step-7b.png" width="600"/>
-  <br/>
   <i>Figure 7: Launching the EC2 instance</i>
 </p>
 
 ---
 
-### 📌 Step 8: Create AMI
-- Select the server
-- Click on **“Action”**
-- Click on **“Image and templates”**
-- Click on **“Create image”**
+### 📌 Step 8: Connecting to server
+- Select each server one by one and perform Step-8 to Step-10
+- Click on **“Connect”**
+- In the **"EC2 Instance Connect"** click on **"Connect"**
 
 <p align="center">
     <img src="Screenshots/step-8.png" width="600"/>
     <br/>
-    <i>Figure 8: Creating AMI for auto scaling</i>
+    <img src="Screenshots/step-8b.png" width="600"/>
+    <br/>
+    <i>Figure 8: Connecting the EC2 instance</i>
 </p>
 
 ---
 
-### 📌 Step 9: Launch AMI
-- Give a name to the AMI
-- Write the description on AMI
-- Click on **“Create image”**
-- Wait until **"Status"** shows **"Available"**
+### 📌 Step 9: Installing Packages
+- Gain root access by `sudo su`
+- Update server by `yum update -y`
+- Install package by `yum install httpd -y`
+- Activate package by `systemctl start httpd`
 
 <p align="center">
     <img src="Screenshots/step-9.png" width="600"/>
     <br/>
     <img src="Screenshots/step-9b.png" width="600"/>
     <br/>
-    <img src="Screenshots/step-9c.png" width="600"/>
-    <br/>
-    <i>Figure 9: Launching the AMI</i>
+    <i>Figure 9: Installing packages on linux</i>
 </p>
 
 ---
 
-### 📌 Step 10: Create Auto Scaling Group
-- Click on **"Auto Scaling Group"**
-- Click on **"Create Auto Scaling Group"**
-- Give name to the auto scaling group
-- Click on **"Create a launch template"**
+### 📌 Step 10: Hosting web page
+- Navigate to **C-drive** by `cd /` 
+- List all folders by `ls`
+- Navigate to **"html"** folder by `cd var/www/html`
+- Create an **"index.html"** file by `cat > index.html` 
+- Write different content in different servers
+- Press `Enter` and save your file by `Control + d`
 
 <p align="center">
     <img src="Screenshots/step-10.png" width="600"/>
     <br/>
     <img src="Screenshots/step-10b.png" width="600"/>
     <br/>
-    <i>Figure 10: Creating auto scaling group</i>
+    <img src="Screenshots/step-10c.png" width="600"/>
+    <br/>
+    <i>Figure 10: Hosting the file</i>
 </p>
 
 ---
 
-### 📌 Step 11: Create Launch Template
-- Give name to the launch template
-- Give description of launch template
-- Click on **"My AMIs"**
-- Select the AMI which you created on above steps
-- Select recent created security groups (2 or 3)
-- Click on **"Create launch template"**
+### 📌 Step 11: Create Load balancer
+- Click on **"Load Balancer"**
+- Click on **"Create load Balancer"**
+- In **"Application Load Balancer"** click on **"Create"**
+- Give **"Load balancer"** name
+- Select **"Internet-facing"** in **"Scheme"**
+- Select multiple security groups (3 or 4)
 
 <p align="center">
     <img src="Screenshots/step-11.png" width="600"/>
@@ -175,20 +183,19 @@ This guide walks you through creating a **Linux server** on AWS EC2 using the AW
     <br/>
     <img src="Screenshots/step-11d.png" width="600"/>
     <br/>
-    <i>Figure 11: Creating launch template</i>
+    <i>Figure 11: Creating load balancer group</i>
 </p>
 
 ---
 
-### 📌 Step 12: Launch Auto Scaling Group
-- Click on the refresh icon in launch template
-- Select the launch template created in above step and click on **"Next"**
-- Select all the availability zones 
-- Select **"Balanced best effort"** and click on **"Next"** 
-- Again click on **"Next"**
-- Give the **"Desired capacity"**, **"Min desired capacity"** and **"Max desired capacity"** and click on **"Next"**
-- Again click on **"Next"** two times
-- Click on **"Create Auto Scaling group"**
+### 📌 Step 12: Create target group
+- In **"Listeners and routing"** click on **"Create target group"**
+- Select **"Instance"** in **"target type"**
+- Give the name of **"Target group"**
+- Click on **"Next"**
+- Select all the created instance and click on **"Include as pending below"**
+- Click on **"Create target group"**
+
 
 <p align="center">
     <img src="Screenshots/step-12.png" width="600"/>
@@ -203,32 +210,54 @@ This guide walks you through creating a **Linux server** on AWS EC2 using the AW
     <br/>
     <img src="Screenshots/step-12f.png" width="600"/>
     <br/>
-    <img src="Screenshots/step-12g.png" width="600"/>
-    <br/>
-    <i>Figure 10: Launching auto scaling group</i>
+    <i>Figure 12: Creating target group</i>
 </p>
 
 ---
 
-### 📌 Step 13: Preview result
-- In the Instance section new servers will be launched by auto scaling group 
+### 📌 Step 13: Launch load balancer
+- Click on the refresh icon
+- Select your previous created target group
+- Click on **"Create load balancer"**
+- Wait until the **"Status"** shows **"Active"**
 
 <p align="center">
     <img src="Screenshots/step-13.png" width="600"/>
     <br/>
-    <i>Figure 11: Showing results</i>
+    <img src="Screenshots/step-13b.png" width="600"/>
+    <br/>
+    <img src="Screenshots/step-13c.png" width="600"/>
+    <br/>
+    <i>Figure 13: Launching load balancer</i>
+</p>
+
+---
+
+### 📌 Step 14: Preview result
+- Copy the **"DNS name** and open it in new tab
+- Refresh the tab multiple times and the request will go to different servers each time
+
+
+<p align="center">
+    <img src="Screenshots/step-14.png" width="600"/>
+    <br/>
+    <img src="Screenshots/step-14b.png" width="600"/>
+    <br/>
+    <img src="Screenshots/step-14c.png" width="600"/>
+    <br/>
+    <i>Figure 14: Showing results</i>
 </p>
 <br/>
 
 ## 📚 Learnings
 
 - Step-by-step EC2 setup
-- Step-by-step creation of Auto Scaling Group
-- Step-by-step creation of launch template
+- Step-by-step creation of load balancer
+- Step-by-step creation of target group
 
 <br/>
 
 ## 🔗 Resources
 
-- [AWS Auto Scaling Documentation](https://docs.aws.amazon.com/autoscaling/)
+- [AWS Load Balancer Documentation](https://docs.aws.amazon.com/elasticloadbalancing/)
 - [AWS Free Tier](https://aws.amazon.com/free)

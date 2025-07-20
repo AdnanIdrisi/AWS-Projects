@@ -2,7 +2,7 @@
   <img src="Screenshots/awslinuxlogo.webp" width="120"/>
 </p>
 
-<h1 align="center" style="color:#2E86C1;">AWS EC2 - Load Balancing in EC2</h1>
+<h1 align="center" style="color:#2E86C1;">AWS EC2 - Auto Scaling in EC2</h1>
 </br>
 
 
@@ -205,7 +205,7 @@ This guide walks you through creating a **Linux server** on AWS EC2 using the AW
     <br/>
     <img src="Screenshots/step-12g.png" width="600"/>
     <br/>
-    <i>Figure 10: Launching auto scaling group</i>
+    <i>Figure 12: Launching auto scaling group</i>
 </p>
 
 ---
@@ -216,7 +216,7 @@ This guide walks you through creating a **Linux server** on AWS EC2 using the AW
 <p align="center">
     <img src="Screenshots/step-13.png" width="600"/>
     <br/>
-    <i>Figure 11: Showing results</i>
+    <i>Figure 13: Showing results</i>
 </p>
 <br/>
 
