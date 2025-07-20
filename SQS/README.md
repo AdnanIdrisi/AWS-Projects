@@ -52,7 +52,6 @@
 <p align="center">
     <img src="Screenshots/step-1.png" width="600"/>
     <br/>
-    <i>Figure 1: SNS console</i>
 </p>
 
 ---
